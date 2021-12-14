@@ -59,6 +59,29 @@
 
 <script>
 
+const keyDivs = document.querySelector('div[data-key="7"')
+
+console.log(keyDivs);
+
+window.addEventListener('keydown', (e) => {
+  keyCode = e.keyCode;
+  const cardPressed = document.querySelector(`div[data-key="${keyCode}"`)
+  if (cardPressed) {
+    cardPressed.classList.add('playing')
+
+    const sound = document.querySelector(`audio[data-key="${keyCode}"`)
+    sound.currentTime = 0;
+    sound.play()
+    
+  }
+})
+
+const keys = document.querySelectorAll('.key')
+keys.forEach(key => key.addEventListener("transitionend", () => {
+  console.log(key);
+  if (key) {key.classList.remove('playing')}
+}))
+
 </script>
 
 
